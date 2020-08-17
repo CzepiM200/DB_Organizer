@@ -1,7 +1,7 @@
 import "../scss/main.scss";
 import "./_mainPage.scss";
 import React, { FunctionComponent } from "react";
-import { HomePage } from "./HomaPage/HomePage";
+import { StartPage } from "./StartPage/StartPage";
 import { Sidebar } from "./Sidebar/Sidebar";
 import { Navbar } from "./Navbar/Navbar";
 
@@ -19,7 +19,7 @@ export const MainPage: FunctionComponent<MainPageProps> = (props: any) => {
             <Sidebar />
           </div>
           <div className="main-page__page">
-            <HomePage />
+            <StartPage />
           </div>
         </article>
       </section>

@@ -1,9 +1,9 @@
 import React, { FunctionComponent, useState } from "react";
 import XLSX from "xlsx";
 
-type HomePageProps = {};
+type StartPageProps = {};
 
-export const HomePage: FunctionComponent<HomePageProps> = (props: any) => {
+export const StartPage: FunctionComponent<StartPageProps> = (props: any) => {
   const [data, setData] = useState([]);
   const [file, setFile] = useState(null);
   const [columns, setColumns] = useState([]);
