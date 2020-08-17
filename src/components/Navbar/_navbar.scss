@@ -1,0 +1,24 @@
+@import "../../scss/generic";
+
+.navbar {
+  height: 100%;
+  background-color: $menus-background;
+
+  &__nav {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  &__item {
+    color: $text-color;
+    font-size: 1.3em;
+    padding: 0.5em 2em;
+  }
+  &__item:hover {
+    color: $primary-color;
+    // border-bottom: 1px solid $secondary-color;
+  }
+}
