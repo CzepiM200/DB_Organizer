@@ -31,6 +31,9 @@ export const MainPage: FunctionComponent<MainPageProps> = (props: any) => {
                   <Route path="/">
                     <HomePage />
                   </Route>
+                  <Route path="/participants">
+                    <HomePage />
+                  </Route>
                 </Switch>
               )}
             </div>

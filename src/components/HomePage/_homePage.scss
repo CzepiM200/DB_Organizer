@@ -13,11 +13,46 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 3px solid $widgets-background;
-    background-color: $widgets-background-light;
+    border: 3px solid darkgrey;
+    border-radius: 0.3em;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     text-decoration: none;
-    color: $widgets-background-dark;
-    font-size: 2em;
+    color: white;
     font-weight: 900;
+    font-size: 2.2em;
+    transition-duration: 0.3s;
+    h3 {
+      background-color: $text-background;
+      padding: 0.5em 1em;
+      border-radius: 0.4em;
+      border: 1px solid $text-background;
+    }
+  }
+  &__item:hover {
+    font-size: 2.4em;
+  }
+  &__item:hover h3 {
+    background-color: $text-background-dark;
+    border-color: $text-background-darker;
+  }
+  &__item:nth-child(1) {
+    background-image: url("../../images/people.jpg");
+  }
+  &__item:nth-child(2) {
+    background-image: url("../../images/people2.jpg");
+  }
+  &__item:nth-child(3) {
+    background-image: url("../../images/money.jpg");
+  }
+  &__item:nth-child(4) {
+    background-image: url("../../images/staistics.jpg");
+  }
+  &__item:nth-child(5) {
+    background-image: url("../../images/room.jpg");
+  }
+  &__item:nth-child(6) {
+    background-image: url("../../images/fruits.jpg");
   }
 }

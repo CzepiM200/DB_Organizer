@@ -9,23 +9,23 @@ export const HomePage: FunctionComponent<HomePageProps> = (props: any) => {
   return (
     <>
       <section className="home-page">
-        <Link className="home-page__item" to="/">
+        <Link className="home-page__item" to="/participants">
           <h3>Uczestnicy</h3>
         </Link>
-        <Link className="home-page__item" to="/">
+        <Link className="home-page__item" to="/cadre">
           <h3>Kadra</h3>
         </Link>
-        <Link className="home-page__item" to="/">
+        <Link className="home-page__item" to="/finances">
           <h3>Finanse</h3>
         </Link>
-        <Link className="home-page__item" to="/">
+        <Link className="home-page__item" to="/statistics">
           <h3>Statystyki</h3>
         </Link>
-        <Link className="home-page__item" to="/">
-          <h3>Uczestnicy</h3>
+        <Link className="home-page__item" to="/rooms">
+          <h3>Pokoje</h3>
         </Link>
-        <Link className="home-page__item" to="/">
-          <h3>Uczestnicy</h3>
+        <Link className="home-page__item" to="/food">
+          <h3>Jedzenie</h3>
         </Link>
       </section>
     </>
