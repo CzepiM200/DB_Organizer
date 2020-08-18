@@ -1,13 +1,11 @@
-const usersMainData = (state = [], action: any) => {
+const usersMainDataReducer = (state = [], action: any) => {
   switch (action.type) {
-    case "LOAD":
-      return state;
-      break;
+    case "SET":
+      return action.payload;
 
     default:
       return state;
-      break;
   }
 };
 
-export default usersMainData;
+export default usersMainDataReducer;

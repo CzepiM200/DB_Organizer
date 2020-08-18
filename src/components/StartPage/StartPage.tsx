@@ -1,15 +1,17 @@
+import "./_startPage.scss";
 import React, { FunctionComponent, useState } from "react";
 import XLSX from "xlsx";
+import { useSelector, useDispatch } from "react-redux";
+import { setMainData, setDataLoaded } from "../../actions/index";
 
 type StartPageProps = {};
 
 export const StartPage: FunctionComponent<StartPageProps> = (props: any) => {
-  const [data, setData] = useState([]);
-  const [file, setFile] = useState(null);
-  const [columns, setColumns] = useState([]);
+  // const usersMainData = useSelector((state: any) => state.setMainData);
+
+  const dispatch = useDispatch();
 
   const handleFile = (file: any) => {
-    console.log(file);
     const reader = new FileReader();
     const rABS = !!reader.readAsBinaryString;
     reader.onload = (e: any) => {
@@ -24,10 +26,8 @@ export const StartPage: FunctionComponent<StartPageProps> = (props: any) => {
         header: 1,
       }) as any;
       /* Update state */
-      console.log(dataTemp);
-      setData(dataTemp);
-      // this.setState({ data: data, cols: make_cols(ws["!ref"]) });
-      console.log(data);
+      dispatch(setMainData(dataTemp));
+      dispatch(setDataLoaded());
     };
     if (rABS) reader.readAsBinaryString(file);
     else reader.readAsArrayBuffer(file);
@@ -54,13 +54,14 @@ export const StartPage: FunctionComponent<StartPageProps> = (props: any) => {
   };
 
   return (
-    <section>
+    <section className="drag-drop">
       <div
+        className="drag-drop__platform"
         onDrop={onFileDrop}
         onDragEnter={onDragEnter}
         onDragOver={onDragOver}
       >
-        Tutaj upuszczamy plik xlsx...
+        <p>Tutaj upuszczamy plik xlsx...</p>
       </div>
     </section>
   );
