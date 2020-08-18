@@ -1,0 +1,23 @@
+@import "../../scss/generic";
+
+.home-page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  &__item {
+    width: 30%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid $widgets-background;
+    background-color: $widgets-background-light;
+    text-decoration: none;
+    color: $widgets-background-dark;
+    font-size: 2em;
+    font-weight: 900;
+  }
+}

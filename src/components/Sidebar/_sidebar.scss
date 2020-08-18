@@ -3,7 +3,7 @@
 .sidebar {
   height: 100%;
   width: 15em;
-  background-color: $menus-light-background;
+  background-color: $menus-background;
 
   &__nav {
     margin-top: 20%;
@@ -15,11 +15,14 @@
   }
 
   &__item {
+    width: 80%;
     color: $text-color;
     font-size: 1.3em;
     padding: 0.7em 2em;
   }
   &__item:hover {
     color: $primary-color;
+    border-bottom: 2px solid $primary-color;
+    padding: calc(0.7em - 2px) 2em;
   }
 }

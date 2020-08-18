@@ -6,6 +6,7 @@ import { StartPage } from "./StartPage/StartPage";
 import { Sidebar } from "./Sidebar/Sidebar";
 import { Navbar } from "./Navbar/Navbar";
 import { useSelector } from "react-redux";
+import { HomePage } from "./HomePage/HomePage";
 type MainPageProps = {};
 
 export const MainPage: FunctionComponent<MainPageProps> = (props: any) => {
@@ -15,15 +16,23 @@ export const MainPage: FunctionComponent<MainPageProps> = (props: any) => {
     <>
       <section className="main-page">
         <Router>
-          <article className="main-page__navbar">
+          {/* <article className="main-page__navbar">
             <Navbar />
-          </article>
+          </article> */}
           <article className="main-page__main">
             <div className="main-page__sidebar">
               <Sidebar />
             </div>
             <div className="main-page__page">
-              {!dataLoaded ? <StartPage /> : <Switch></Switch>}
+              {dataLoaded ? (
+                <StartPage />
+              ) : (
+                <Switch>
+                  <Route path="/">
+                    <HomePage />
+                  </Route>
+                </Switch>
+              )}
             </div>
           </article>
         </Router>
