@@ -11,6 +11,17 @@ export const StartPage: FunctionComponent<StartPageProps> = (props: any) => {
 
   const dispatch = useDispatch();
 
+  const PeselFix = (data: Array<any>): Array<any> => {
+    for (let i = 1; i < data.length; i++) {
+      data[i][0] = String(data[i][0]);
+      while (data[i][0].length < 11) {
+        data[i][0] = "0" + data[i][0];
+      }
+      console.log(data[i]);
+    }
+    return data;
+  };
+
   const handleFile = (file: any) => {
     const reader = new FileReader();
     const rABS = !!reader.readAsBinaryString;
@@ -22,10 +33,13 @@ export const StartPage: FunctionComponent<StartPageProps> = (props: any) => {
       const wsname = wb.SheetNames[0];
       const ws = wb.Sheets[wsname];
       /* Convert array of arrays */
-      const dataTemp = XLSX.utils.sheet_to_json(ws, {
+      let dataTemp = XLSX.utils.sheet_to_json(ws, {
         header: 1,
-      }) as any;
-      /* Update state */
+      }) as Array<any>;
+
+      dataTemp = PeselFix(dataTemp);
+
+      /* Update redux state */
       dispatch(setMainData(dataTemp));
       dispatch(setDataLoaded());
     };

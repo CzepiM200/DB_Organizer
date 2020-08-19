@@ -20,7 +20,9 @@
       color: $text-color;
     }
     svg {
-      height: 55%;
+      height: 3em;
+      width: 3em;
+      margin-left: 1em;
       path {
         transition-duration: 0.5s;
         fill: $secondary-color;

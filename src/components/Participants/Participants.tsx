@@ -1,6 +1,7 @@
 import "../../scss/main.scss";
 import "./_participants.scss";
 import { ReactComponent as PlusIcon } from "../../images/svg/plus.svg";
+import { ReactComponent as CakeIcon } from "../../images/svg/cake.svg";
 import React, { FunctionComponent } from "react";
 // import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -74,7 +75,10 @@ export const Participants: FunctionComponent<ParticipantsProps> = (
       <section className="participants">
         <article className="participants__menu">
           <h1>Lista uczestników</h1>
-          <PlusIcon />
+          <div className="participants__icons">
+            <CakeIcon />
+            <PlusIcon />
+          </div>
         </article>
         <article className="participants__list">{ParticipantsList()}</article>
       </section>

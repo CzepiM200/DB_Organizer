@@ -29,6 +29,15 @@ export const Sidebar: FunctionComponent<Sidebar> = (props: any) => {
         <Link className="sidebar__item" to="/food">
           <li>Jedzeni</li>
         </Link>
+        <Link className="sidebar__item" to="/weather">
+          <li>Pogoda</li>
+        </Link>
+        <Link className="sidebar__item" to="/maps">
+          <li>Mapy</li>
+        </Link>
+        <Link className="sidebar__item" to="/settings">
+          <li>Ustawienia</li>
+        </Link>
       </ul>
     </div>
   );

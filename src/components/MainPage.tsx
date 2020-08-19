@@ -29,7 +29,28 @@ export const MainPage: FunctionComponent<MainPageProps> = (props: any) => {
                   <Route exact path="/">
                     <HomePage />
                   </Route>
-                  <Route path="/participants">
+                  <Route exact path="/participants">
+                    <Participants />
+                  </Route>
+                  <Route exact path="/cadre">
+                    <Participants />
+                  </Route>
+                  <Route exact path="/finances">
+                    <Participants />
+                  </Route>
+                  <Route exact path="/statistics">
+                    <Participants />
+                  </Route>
+                  <Route exact path="/rooms">
+                    <Participants />
+                  </Route>
+                  <Route exact path="/food">
+                    <Participants />
+                  </Route>
+                  <Route exact path="/weather">
+                    <Participants />
+                  </Route>
+                  <Route exact path="/maps">
                     <Participants />
                   </Route>
                 </Switch>
