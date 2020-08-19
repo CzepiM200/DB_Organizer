@@ -1,7 +1,7 @@
 import "./_startPage.scss";
 import React, { FunctionComponent, useState } from "react";
 import XLSX from "xlsx";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setMainData, setDataLoaded } from "../../actions/index";
 
 type StartPageProps = {};

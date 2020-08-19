@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { StartPage } from "./StartPage/StartPage";
 import { Sidebar } from "./Sidebar/Sidebar";
 import { Navbar } from "./Navbar/Navbar";
+import { Participants } from "./Participants/Participants";
 import { useSelector } from "react-redux";
 import { HomePage } from "./HomePage/HomePage";
 type MainPageProps = {};
@@ -16,23 +17,20 @@ export const MainPage: FunctionComponent<MainPageProps> = (props: any) => {
     <>
       <section className="main-page">
         <Router>
-          {/* <article className="main-page__navbar">
-            <Navbar />
-          </article> */}
           <article className="main-page__main">
             <div className="main-page__sidebar">
               <Sidebar />
             </div>
             <div className="main-page__page">
-              {dataLoaded ? (
+              {!dataLoaded ? (
                 <StartPage />
               ) : (
                 <Switch>
-                  <Route path="/">
+                  <Route exact path="/">
                     <HomePage />
                   </Route>
                   <Route path="/participants">
-                    <HomePage />
+                    <Participants />
                   </Route>
                 </Switch>
               )}

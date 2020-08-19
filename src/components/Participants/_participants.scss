@@ -1,0 +1,87 @@
+@import "../../scss/generic";
+
+.participants {
+  width: 100%;
+  height: 100%;
+
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 15%;
+    padding: 0 5%;
+    background-color: $menus-background-transparent;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+    h1 {
+      font-size: 2.8em;
+      color: $text-color;
+    }
+    svg {
+      height: 55%;
+      path {
+        transition-duration: 0.5s;
+        fill: $secondary-color;
+      }
+    }
+    svg:hover {
+      path {
+        fill: $primary-color;
+      }
+    }
+  }
+  &__list {
+    width: 100%;
+    height: 85%;
+    background-color: $menus-light-ransparent-background;
+    border-bottom-left-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+    overflow-y: scroll;
+  }
+  &__list-item {
+    width: calc(100% - 1.2em);
+    margin: 0.3em 0.6em;
+    padding: 1%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $text-color;
+    border-radius: 0.5em;
+    background-color: $text-background-darker;
+    transition-duration: 0.5s;
+    h2 {
+      width: 90%;
+
+      font-size: 2em;
+      color: $text-color;
+      text-align: left;
+    }
+  }
+  &__list-item:hover {
+    background-color: $text-background-darker-non-transparent;
+  }
+  &__line {
+    width: 95%;
+    margin-top: 0.2em;
+    margin-bottom: 0.5em;
+    border-bottom: 3px solid $primary-color;
+  }
+  &__list-data {
+    display: flex;
+    justify-content: space-around;
+    width: 95%;
+    p {
+      margin: 0.1em 0;
+    }
+    span {
+      color: $primary-color;
+    }
+  }
+  &__data {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

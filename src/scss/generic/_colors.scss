@@ -1,6 +1,7 @@
-$menus-background: #363440;
-$menus-light-background: #4e4a5a;
-$menus-light-ransparent-background: rgba(78, 74, 90, 0.45);
+$menus-background: rgba(54, 52, 64, 1);
+$menus-background-transparent: rgba(54, 52, 64, 0.9);
+$menus-light-background: rgba(78, 74, 90, 0.8);
+$menus-light-ransparent-background: rgba(78, 74, 90, 0.9);
 
 $primary-color: #d98032;
 $primary-color-transparent: rgba(217, 128, 50, 0.5);
@@ -13,6 +14,7 @@ $text-color: #f2ede4;
 $text-background: rgba(46, 46, 46, 0.8);
 $text-background-dark: rgba(31, 31, 31, 0.8);
 $text-background-darker: rgba(27, 27, 27, 0.9);
+$text-background-darker-non-transparent: rgba(27, 27, 27, 1);
 
 // $info-color: #3498db;
 // $warning-color: #ffb03b;
