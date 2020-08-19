@@ -1,5 +1,6 @@
 import "./_sidebar.scss";
 import React, { FunctionComponent } from "react";
+import { Link } from "react-router-dom";
 
 type Sidebar = {};
 
@@ -7,11 +8,27 @@ export const Sidebar: FunctionComponent<Sidebar> = (props: any) => {
   return (
     <div className="sidebar">
       <ul className="sidebar__nav">
-        <li className="sidebar__item">Home</li>
-        <li className="sidebar__item">Uczestnicy</li>
-        <li className="sidebar__item">Przydziały</li>
-        <li className="sidebar__item">Finanse</li>
-        <li className="sidebar__item">Inne</li>
+        <Link className="sidebar__item" to="/">
+          <li>Home</li>
+        </Link>
+        <Link className="sidebar__item" to="/participants">
+          <li>Uczestnicy</li>
+        </Link>
+        <Link className="sidebar__item" to="/cadre">
+          <li>Kadra</li>
+        </Link>
+        <Link className="sidebar__item" to="/finances">
+          <li>Finanse</li>
+        </Link>
+        <Link className="sidebar__item" to="/statistics">
+          <li>Statystki</li>
+        </Link>
+        <Link className="sidebar__item" to="/rooms">
+          <li>Pokoje</li>
+        </Link>
+        <Link className="sidebar__item" to="/food">
+          <li>Jedzeni</li>
+        </Link>
       </ul>
     </div>
   );
