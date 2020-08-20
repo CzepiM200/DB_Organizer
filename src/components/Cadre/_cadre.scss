@@ -17,5 +17,12 @@
     &:hover {
       background-color: $text-background-darker-non-transparent;
     }
+    h2 {
+      color: $widgets-background;
+    }
+    h2:nth-child(2) {
+      color: $text-color;
+      text-align: right;
+    }
   }
 }

@@ -5,6 +5,13 @@ export const setMainData = (data: any) => {
   };
 };
 
+export const setCadreData = (data: any) => {
+  return {
+    type: "SETCADREDATA",
+    payload: data,
+  };
+};
+
 export const setDataLoaded = () => {
   return {
     type: "DATALOADED",

@@ -1,14 +1,12 @@
 import "./_startPage.scss";
-import React, { FunctionComponent, useState } from "react";
+import React, { FunctionComponent } from "react";
 import XLSX from "xlsx";
 import { useDispatch } from "react-redux";
-import { setMainData, setDataLoaded } from "../../actions/index";
+import { setMainData, setCadreData, setDataLoaded } from "../../actions/index";
 
 type StartPageProps = {};
 
 export const StartPage: FunctionComponent<StartPageProps> = (props: any) => {
-  // const usersMainData = useSelector((state: any) => state.setMainData);
-
   const dispatch = useDispatch();
 
   const PeselFix = (data: Array<any>): Array<any> => {
@@ -28,18 +26,27 @@ export const StartPage: FunctionComponent<StartPageProps> = (props: any) => {
       /* Parse data */
       const bstr = e.target.result;
       const wb = XLSX.read(bstr, { type: rABS ? "binary" : "array" });
-      /* Get first worksheet */
-      const wsname = wb.SheetNames[0];
-      const ws = wb.Sheets[wsname];
+      /* Get worksheet names */
+      const participantsSheetName = wb.SheetNames[0];
+      const cadreSheetName = wb.SheetNames[1];
+
+      /* Get worksheet data */
+      const participantsSheet = wb.Sheets[participantsSheetName];
+      const cadreSheet = wb.Sheets[cadreSheetName];
+
       /* Convert array of arrays */
-      let dataTemp = XLSX.utils.sheet_to_json(ws, {
+      let participantsData = XLSX.utils.sheet_to_json(participantsSheet, {
+        header: 1,
+      }) as Array<any>;
+      let cadreData = XLSX.utils.sheet_to_json(cadreSheet, {
         header: 1,
       }) as Array<any>;
 
-      dataTemp = PeselFix(dataTemp);
+      participantsData = PeselFix(participantsData);
 
       /* Update redux state */
-      dispatch(setMainData(dataTemp));
+      dispatch(setMainData(participantsData));
+      dispatch(setCadreData(cadreData));
       dispatch(setDataLoaded());
     };
     if (rABS) reader.readAsBinaryString(file);
