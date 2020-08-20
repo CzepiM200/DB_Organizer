@@ -17,7 +17,6 @@ export const StartPage: FunctionComponent<StartPageProps> = (props: any) => {
       while (data[i][0].length < 11) {
         data[i][0] = "0" + data[i][0];
       }
-      console.log(data[i]);
     }
     return data;
   };

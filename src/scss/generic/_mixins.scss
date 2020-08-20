@@ -1,0 +1,53 @@
+@mixin mainListBox {
+  width: 100%;
+  height: 100%;
+  padding: 0 0 1% 0;
+  border-radius: 0.5em;
+  cursor: default;
+}
+
+@mixin mainH1 {
+  font-size: 2.8em;
+  color: $text-color;
+}
+
+@mixin mainListMenu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 15%;
+  padding: 0 5%;
+  background-color: $menus-background-transparent;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+}
+
+@mixin mainList {
+  width: 100%;
+  height: 85%;
+  background-color: $menus-light-ransparent-background;
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+  overflow-y: scroll;
+}
+
+@mixin mainListItem {
+  width: calc(100% - 1.2em);
+  margin: 0.3em 0.6em;
+  padding: 1%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: $text-color;
+  border-radius: 0.5em;
+  background-color: $text-background-darker;
+  transition-duration: 0.5s;
+  h2 {
+    width: 90%;
+    padding: 0 1%;
+    font-size: 2em;
+    color: $primary-color;
+    text-align: left;
+  }
+}

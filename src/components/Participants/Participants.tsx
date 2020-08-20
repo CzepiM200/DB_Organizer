@@ -5,6 +5,7 @@ import { ReactComponent as CakeIcon } from "../../images/svg/cake.svg";
 import React, { FunctionComponent } from "react";
 // import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 type ParticipantsProps = {};
 
@@ -76,8 +77,12 @@ export const Participants: FunctionComponent<ParticipantsProps> = (
         <article className="participants__menu">
           <h1>Lista uczestników</h1>
           <div className="participants__icons">
-            <CakeIcon />
-            <PlusIcon />
+            <Link className="sidebar__item" to="/participants/birthdays">
+              <CakeIcon />
+            </Link>
+            <Link className="sidebar__item" to="/participants/add">
+              <PlusIcon />
+            </Link>
           </div>
         </article>
         <article className="participants__list">{ParticipantsList()}</article>
