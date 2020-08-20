@@ -16,14 +16,15 @@ export const Cadre: FunctionComponent<CadreProps> = (props: any) => {
         </article>
         <article className="cadre__list">
           {cadreData.map((element: any, index: any) => {
-            return (
-              <div className="cadre__list-item">
-                <h2>
-                  {element[0]} {element[1]}
-                </h2>
-                <h2>{element[3]}</h2>
-              </div>
-            );
+            if (index !== 0)
+              return (
+                <div className="cadre__list-item">
+                  <h2>
+                    {element[0]} {element[1]}
+                  </h2>
+                  <h2>{element[3]}</h2>
+                </div>
+              );
           })}
         </article>
       </section>
