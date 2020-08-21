@@ -3,6 +3,7 @@ import cadreData from "./cadreData";
 import dataLoaded from "./dataLoaded";
 import datesData from "./datesData";
 import financesData from "./financesData";
+import roomsData from "./roomsData";
 import { combineReducers } from "redux";
 
 const allReducers = combineReducers({
@@ -11,6 +12,7 @@ const allReducers = combineReducers({
   cadreData: cadreData,
   datesData: datesData,
   financesData: financesData,
+  roomsData: roomsData,
 });
 
 export default allReducers;

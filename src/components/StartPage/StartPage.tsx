@@ -7,6 +7,9 @@ import {
   setCadreData,
   setDatesData,
   setFinancesData,
+  setRoomsData,
+  setBillsData,
+  setFuelData,
   setDataLoaded,
 } from "../../actions/index";
 
@@ -80,6 +83,7 @@ export const StartPage: FunctionComponent<StartPageProps> = (props: any) => {
       dispatch(setCadreData(cadreData));
       dispatch(setDatesData(datesData));
       dispatch(setFinancesData(financesData));
+      dispatch(setRoomsData(roomsData));
       dispatch(setDataLoaded());
     };
     if (rABS) reader.readAsBinaryString(file);
