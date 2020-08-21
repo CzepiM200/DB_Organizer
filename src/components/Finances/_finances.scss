@@ -11,4 +11,48 @@
   &__list {
     @include mainList;
   }
+
+  &__list-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1%;
+    padding: 0.4em;
+    font-size: 1.2em;
+    background-color: $text-background-darker;
+    border-radius: 0.2em;
+    div {
+      width: 40%;
+      h2 {
+        color: $text-color;
+        font-size: 1.4em;
+        text-align: center;
+        margin-bottom: 0.2em;
+      }
+    }
+    p {
+      margin: 0.1em;
+      color: $text-color;
+      text-align: left;
+      span {
+        color: $primary-color;
+      }
+    }
+    &_main {
+      p {
+        text-align: center;
+      }
+      border: 2px solid $widgets-background-dark;
+    }
+    &:hover {
+      background-color: $text-background-darker-non-transparent;
+    }
+  }
+  &__income {
+  }
+  &__expences {
+  }
+}
+
+.finaces__list-item {
 }
