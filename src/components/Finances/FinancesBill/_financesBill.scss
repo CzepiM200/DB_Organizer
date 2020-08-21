@@ -1,0 +1,15 @@
+div.finances {
+  &__icon {
+    &_bill {
+      width: 2.5em;
+      align-self: center;
+      svg {
+        width: 2.5em;
+        height: 2.5em;
+        path {
+          fill: #027373;
+        }
+      }
+    }
+  }
+}

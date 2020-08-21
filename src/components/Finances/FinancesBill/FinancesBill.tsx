@@ -1,5 +1,6 @@
+import "./_financesBill.scss";
 import React, { FunctionComponent } from "react";
-import { useSelector } from "react-redux";
+import { ReactComponent as BillIcon } from "../../../images/svg/bill.svg";
 
 type FinancesBillProps = {
   bill: Array<string | number>;
@@ -18,6 +19,9 @@ export const FinancesBill: FunctionComponent<FinancesBillProps> = (
 
   return (
     <div className="finances__list-item">
+      <div className="finances__icon_bill">
+        <BillIcon />
+      </div>
       <div className="finances__list-item_left">
         <p>
           <span>Data: </span>

@@ -1,5 +1,6 @@
+import "./_financesFuel.scss";
 import React, { FunctionComponent } from "react";
-import { useSelector } from "react-redux";
+import { ReactComponent as FuelIcon } from "../../../images/svg/fuel.svg";
 
 type FinancesFuelProps = {
   fuel: Array<string | number>;
@@ -18,6 +19,9 @@ export const FinancesFuel: FunctionComponent<FinancesFuelProps> = (
 
   return (
     <div className="finances__list-item">
+      <div className="finances__icon_fuel">
+        <FuelIcon />
+      </div>
       <div className="finances__list-item_left">
         <p>
           <span>Data: </span>

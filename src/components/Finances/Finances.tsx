@@ -13,10 +13,20 @@ export const Finances: FunctionComponent<FinancesProps> = (props: any) => {
   const fuelDate = useSelector((state: any) => state.fuelData);
 
   let income = 0;
-  let billsExpences = 0;
-  let fuelExpences = 0;
+  let billsExpences = billsDate.reduce(
+    (acc: number, cur: Array<any>, index: number) => {
+      return index !== 0 ? acc + Number(cur[1]) : 0;
+    },
+    0
+  );
+  let fuelExpences = fuelDate.reduce(
+    (acc: number, cur: Array<any>, index: number) => {
+      return index !== 0 ? acc + Number(cur[1]) : 0;
+    },
+    0
+  );
   let expences = billsExpences + fuelExpences;
-  let balance = undefined;
+  let balance = income - expences;
 
   return (
     <>
@@ -38,7 +48,7 @@ export const Finances: FunctionComponent<FinancesProps> = (props: any) => {
               </p>
               <p>
                 <span>Łącznie: </span>
-                {income} zł/dzień
+                {income} zł
               </p>
             </div>
             <div className="finances__expences">
@@ -52,8 +62,16 @@ export const Finances: FunctionComponent<FinancesProps> = (props: any) => {
                 {financesDate[1][3]} zł/dzień
               </p>
               <p>
+                <span>Faktury: </span>
+                {billsExpences} zł
+              </p>
+              <p>
+                <span>Benzyna: </span>
+                {fuelExpences} zł
+              </p>
+              <p>
                 <span>Łącznie: </span>
-                {expences} zł/dzień
+                {expences} zł
               </p>
             </div>
           </div>
