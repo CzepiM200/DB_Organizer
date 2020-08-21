@@ -10,6 +10,13 @@ import { Birthdays } from "./Birthdays/Birthdays";
 import { useSelector } from "react-redux";
 import { HomePage } from "./HomePage/HomePage";
 import { Cadre } from "./Cadre/Cadre";
+import { Finances } from "./Finances/Finances";
+import { Statistics } from "./Statistics/Statistics";
+import { Rooms } from "./Rooms/Rooms";
+import { Food } from "./Food/Food";
+import { Weather } from "./Weather/Weather";
+import { Maps } from "./Maps/Maps";
+import { Settings } from "./Settings/Settings";
 type MainPageProps = {};
 
 export const MainPage: FunctionComponent<MainPageProps> = (props: any) => {
@@ -41,25 +48,25 @@ export const MainPage: FunctionComponent<MainPageProps> = (props: any) => {
                     <Cadre />
                   </Route>
                   <Route exact path="/finances">
-                    <Participants />
+                    <Finances />
                   </Route>
                   <Route exact path="/statistics">
-                    <Participants />
+                    <Statistics />
                   </Route>
                   <Route exact path="/rooms">
-                    <Participants />
+                    <Rooms />
                   </Route>
                   <Route exact path="/food">
-                    <Participants />
+                    <Food />
                   </Route>
                   <Route exact path="/weather">
-                    <Participants />
+                    <Weather />
                   </Route>
                   <Route exact path="/maps">
-                    <Participants />
+                    <Maps />
                   </Route>
                   <Route exact path="/settings">
-                    <Participants />
+                    <Settings />
                   </Route>
                 </Switch>
               )}

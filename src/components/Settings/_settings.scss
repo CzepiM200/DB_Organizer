@@ -1,0 +1,14 @@
+@import "../../scss/generic";
+
+.settings {
+  @include mainListBox;
+  h1 {
+    @include mainH1;
+  }
+  &__menu {
+    @include mainListMenu;
+  }
+  &__list {
+    @include mainList;
+  }
+}
