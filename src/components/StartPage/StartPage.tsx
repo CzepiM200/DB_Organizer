@@ -2,7 +2,12 @@ import "./_startPage.scss";
 import React, { FunctionComponent } from "react";
 import XLSX from "xlsx";
 import { useDispatch } from "react-redux";
-import { setMainData, setCadreData, setDataLoaded } from "../../actions/index";
+import {
+  setMainData,
+  setCadreData,
+  setDatesData,
+  setDataLoaded,
+} from "../../actions/index";
 
 type StartPageProps = {};
 
@@ -29,10 +34,20 @@ export const StartPage: FunctionComponent<StartPageProps> = (props: any) => {
       /* Get worksheet names */
       const participantsSheetName = wb.SheetNames[0];
       const cadreSheetName = wb.SheetNames[1];
+      const datesSheetName = wb.SheetNames[2];
+      const financesSheetName = wb.SheetNames[3];
+      const roomsSheetName = wb.SheetNames[4];
+      const billsSheetName = wb.SheetNames[5];
+      const fuelSheetName = wb.SheetNames[6];
 
       /* Get worksheet data */
       const participantsSheet = wb.Sheets[participantsSheetName];
       const cadreSheet = wb.Sheets[cadreSheetName];
+      const datesSheet = wb.Sheets[datesSheetName];
+      const financesSheet = wb.Sheets[financesSheetName];
+      const roomsSheet = wb.Sheets[roomsSheetName];
+      const billsSheet = wb.Sheets[billsSheetName];
+      const fuelSheet = wb.Sheets[fuelSheetName];
 
       /* Convert array of arrays */
       let participantsData = XLSX.utils.sheet_to_json(participantsSheet, {
@@ -41,12 +56,28 @@ export const StartPage: FunctionComponent<StartPageProps> = (props: any) => {
       let cadreData = XLSX.utils.sheet_to_json(cadreSheet, {
         header: 1,
       }) as Array<any>;
+      let datesData = XLSX.utils.sheet_to_json(datesSheet, {
+        header: 1,
+      }) as Array<any>;
+      let financesData = XLSX.utils.sheet_to_json(financesSheet, {
+        header: 1,
+      }) as Array<any>;
+      let roomsData = XLSX.utils.sheet_to_json(roomsSheet, {
+        header: 1,
+      }) as Array<any>;
+      let billsData = XLSX.utils.sheet_to_json(billsSheet, {
+        header: 1,
+      }) as Array<any>;
+      let fuelData = XLSX.utils.sheet_to_json(fuelSheet, {
+        header: 1,
+      }) as Array<any>;
 
       participantsData = PeselFix(participantsData);
 
       /* Update redux state */
       dispatch(setMainData(participantsData));
       dispatch(setCadreData(cadreData));
+      dispatch(setDatesData(datesData));
       dispatch(setDataLoaded());
     };
     if (rABS) reader.readAsBinaryString(file);
