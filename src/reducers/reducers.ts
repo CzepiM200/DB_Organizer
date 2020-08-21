@@ -5,6 +5,7 @@ import datesData from "./datesData";
 import financesData from "./financesData";
 import roomsData from "./roomsData";
 import billsData from "./billsData";
+import fuelData from "./fuelData";
 import { combineReducers } from "redux";
 
 const allReducers = combineReducers({
@@ -15,6 +16,7 @@ const allReducers = combineReducers({
   financesData: financesData,
   roomsData: roomsData,
   billsData: billsData,
+  fuelData: fuelData,
 });
 
 export default allReducers;

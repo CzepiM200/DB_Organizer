@@ -85,6 +85,7 @@ export const StartPage: FunctionComponent<StartPageProps> = (props: any) => {
       dispatch(setFinancesData(financesData));
       dispatch(setRoomsData(roomsData));
       dispatch(setBillsData(billsData));
+      dispatch(setFuelData(fuelData));
       dispatch(setDataLoaded());
     };
     if (rABS) reader.readAsBinaryString(file);
