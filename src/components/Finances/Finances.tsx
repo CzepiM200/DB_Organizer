@@ -2,6 +2,7 @@ import "../../scss/main.scss";
 import "./_finances.scss";
 import { FinancesBill } from "./FinancesBill/FinancesBill";
 import { FinancesFuel } from "./FinancesFuel/FinancesFuel";
+import { ReactComponent as InfoIcon } from "../../images/svg/bill.svg";
 import React, { FunctionComponent } from "react";
 import { useSelector } from "react-redux";
 
@@ -33,6 +34,7 @@ export const Finances: FunctionComponent<FinancesProps> = (props: any) => {
       <section className="finances">
         <article className="finances__menu">
           <h1>Finanse</h1>
+          <InfoIcon />
         </article>
         <article className="finances__list">
           <div className="finances__list-item finances__list-item_main">
