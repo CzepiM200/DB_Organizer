@@ -21,8 +21,8 @@ export const HomePage: FunctionComponent<HomePageProps> = (props: any) => {
         <Link className="home-page__item" to="/statistics">
           <h3>Statystyki</h3>
         </Link>
-        <Link className="home-page__item" to="/rooms">
-          <h3>Pokoje</h3>
+        <Link className="home-page__item" to="/weather">
+          <h3>Pogoda</h3>
         </Link>
         <Link className="home-page__item" to="/food">
           <h3>Jedzenie</h3>

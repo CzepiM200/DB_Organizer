@@ -9,11 +9,17 @@ import { useSelector } from "react-redux";
 type FinancesProps = {};
 
 export const Finances: FunctionComponent<FinancesProps> = (props: any) => {
+  const usersMainData = useSelector((state: any) => state.usersMainData);
   const financesDate = useSelector((state: any) => state.financesData);
   const billsDate = useSelector((state: any) => state.billsData);
   const fuelDate = useSelector((state: any) => state.fuelData);
 
-  let income = 0;
+  let income = usersMainData.reduce(
+    (acc: number, cur: Array<any>, index: number) => {
+      return index !== 0 ? acc + Number(cur[14]) : 0;
+    },
+    0
+  );
   let billsExpences = billsDate.reduce(
     (acc: number, cur: Array<any>, index: number) => {
       return index !== 0 ? acc + Number(cur[1]) : 0;
