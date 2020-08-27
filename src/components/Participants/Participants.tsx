@@ -77,10 +77,10 @@ export const Participants: FunctionComponent<ParticipantsProps> = (
         <article className="participants__menu">
           <h1>Lista uczestników</h1>
           <div className="participants__icons">
-            <Link className="sidebar__item" to="/participants/birthdays">
+            <Link className="participants__item" to="/participants/birthdays">
               <CakeIcon />
             </Link>
-            <Link className="sidebar__item" to="/participants/add">
+            <Link className="participants__item" to="/participants/add">
               <PlusIcon />
             </Link>
           </div>

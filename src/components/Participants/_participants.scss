@@ -19,20 +19,7 @@
       font-size: 2.8em;
       color: $text-color;
     }
-    svg {
-      height: 3em;
-      width: 3em;
-      margin-left: 1em;
-      path {
-        transition-duration: 0.5s;
-        fill: $secondary-color;
-      }
-    }
-    svg:hover {
-      path {
-        fill: $primary-color;
-      }
-    }
+    @include standardSvg;
   }
   &__list {
     width: 100%;
