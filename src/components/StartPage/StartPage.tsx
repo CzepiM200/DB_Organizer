@@ -13,9 +13,12 @@ import {
   setDataLoaded,
 } from "../../actions/index";
 
-type StartPageProps = {};
+type StartPageProps = {
+  saveData: any;
+};
 
 export const StartPage: FunctionComponent<StartPageProps> = (props: any) => {
+  const { saveData } = props;
   const dispatch = useDispatch();
 
   const PeselFix = (data: Array<any>): Array<any> => {
@@ -90,6 +93,33 @@ export const StartPage: FunctionComponent<StartPageProps> = (props: any) => {
     };
     if (rABS) reader.readAsBinaryString(file);
     else reader.readAsArrayBuffer(file);
+    saveData();
+  };
+
+  const loadDataFromBrowser = (e: any) => {
+    const dataLoaded = localStorage.getItem("dataLoaded");
+
+    if (dataLoaded !== null) {
+      if (JSON.parse(dataLoaded)) {
+        const allDataString = localStorage.getItem("allData");
+        if (allDataString !== null) {
+          const allData = JSON.parse(allDataString);
+          dispatch(setMainData(allData.usersMainData));
+          dispatch(setCadreData(allData.cadreData));
+          dispatch(setDatesData(allData.datesData));
+          dispatch(setFinancesData(allData.financesData));
+          dispatch(setRoomsData(allData.roomsData));
+          dispatch(setBillsData(allData.billsData));
+          dispatch(setFuelData(allData.fuelData));
+          dispatch(setDataLoaded());
+          console.log(allData);
+        }
+      } else {
+        alert("Brak arkuszy w pamięci przeglądarki");
+      }
+    } else {
+      alert("Brak arkuszy w pamięci przeglądarki");
+    }
   };
 
   const onDragOver = (e: any) => {
@@ -121,6 +151,9 @@ export const StartPage: FunctionComponent<StartPageProps> = (props: any) => {
         onDragOver={onDragOver}
       >
         <p>Tutaj upuszczamy plik xlsx...</p>
+      </div>
+      <div className="drag-drop__platform">
+        <h3 onClick={loadDataFromBrowser}>Wczytaj dane z przeglądarki</h3>
       </div>
     </section>
   );

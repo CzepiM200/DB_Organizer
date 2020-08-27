@@ -17,10 +17,35 @@ import { Food } from "./Food/Food";
 import { Weather } from "./Weather/Weather";
 import { Maps } from "./Maps/Maps";
 import { Settings } from "./Settings/Settings";
+
 type MainPageProps = {};
 
 export const MainPage: FunctionComponent<MainPageProps> = (props: any) => {
   const dataLoaded = useSelector((state: any) => state.dataLoaded);
+  const usersMainData = useSelector((state: any) => state.usersMainData);
+  const cadreData = useSelector((state: any) => state.cadreData);
+  const financesData = useSelector((state: any) => state.financesData);
+  const roomsData = useSelector((state: any) => state.roomsData);
+  const billsData = useSelector((state: any) => state.billsData);
+  const fuelData = useSelector((state: any) => state.fuelData);
+  const datesData = useSelector((state: any) => state.datesData);
+
+  const saveData = () => {
+    if (dataLoaded === true) {
+      const allData = {
+        usersMainData,
+        cadreData,
+        financesData,
+        roomsData,
+        billsData,
+        fuelData,
+        datesData,
+      };
+
+      localStorage.setItem("dataLoaded", JSON.stringify(dataLoaded));
+      localStorage.setItem("allData", JSON.stringify(allData));
+    }
+  };
 
   return (
     <>
@@ -32,7 +57,7 @@ export const MainPage: FunctionComponent<MainPageProps> = (props: any) => {
             </div>
             <div className="main-page__page">
               {!dataLoaded ? (
-                <StartPage />
+                <StartPage saveData={saveData} />
               ) : (
                 <Switch>
                   <Route exact path="/">
@@ -66,7 +91,7 @@ export const MainPage: FunctionComponent<MainPageProps> = (props: any) => {
                     <Maps />
                   </Route>
                   <Route exact path="/settings">
-                    <Settings />
+                    <Settings saveData={saveData} />
                   </Route>
                 </Switch>
               )}

@@ -10,14 +10,36 @@
   &__platform {
     width: 30em;
     height: 20em;
+    margin: 1em;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: $primary-color-transparent;
-    border: 2px dotted $primary-color;
+    background-color: $menus-light-ransparent-background;
+    border: 3px dotted $secondary-color;
     p {
       font-size: 2em;
-      color: $secondary-color;
+      color: $text-color;
+    }
+    h3 {
+      @keyframes loadHover {
+        from {
+          border: 3px solid $text-color;
+        }
+        to {
+          border: 3px solid $primary-color;
+        }
+      }
+
+      padding: 0.5em;
+      font-size: 2em;
+      color: $text-color;
+      cursor: pointer;
+      border: 3px solid $text-color;
+      border-radius: 1em;
+      &:hover {
+        animation: loadHover 0.5s;
+        border: 3px solid $primary-color;
+      }
     }
   }
 }

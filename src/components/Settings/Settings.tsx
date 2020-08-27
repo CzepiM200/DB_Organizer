@@ -1,12 +1,14 @@
 import "../../scss/main.scss";
 import "./_settings.scss";
 import React, { FunctionComponent } from "react";
-import { useSelector } from "react-redux";
+import { ReactComponent as SaveIcon } from "../../images/svg/save.svg";
 
-type SettingsProps = {};
+type SettingsProps = {
+  saveData: any;
+};
 
 export const Settings: FunctionComponent<SettingsProps> = (props: any) => {
-  //   const cadreData = useSelector((state: any) => state.cadreData);
+  const { saveData } = props;
 
   return (
     <>
@@ -14,7 +16,12 @@ export const Settings: FunctionComponent<SettingsProps> = (props: any) => {
         <article className="settings__menu">
           <h1>Ustawienia</h1>
         </article>
-        <article className="settings__list">W trakcie pracy...</article>
+        <article className="settings__list">
+          <div className="settings__list-item">
+            <h2>Zapisz dane do pamięcie przeglądarki</h2>
+            <SaveIcon onClick={saveData} />
+          </div>
+        </article>
       </section>
     </>
   );
