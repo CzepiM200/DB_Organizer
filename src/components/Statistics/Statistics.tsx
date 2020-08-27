@@ -4,6 +4,10 @@ import React, { FunctionComponent } from "react";
 import { Line, Bar } from "react-chartjs-2";
 import { useSelector } from "react-redux";
 import { AgeFromDate } from "age-calculator";
+import { ReactComponent as CakeIcon } from "../../images/svg/cake.svg";
+import { ReactComponent as ChartIcon } from "../../images/svg/chart.svg";
+import { ReactComponent as ChartPieIcon } from "../../images/svg/chartPie.svg";
+import { Switch, Route, Link } from "react-router-dom";
 
 type StatisticsProps = {};
 
@@ -13,7 +17,7 @@ export const Statistics: FunctionComponent<StatisticsProps> = (props: any) => {
     labels: ["18", "19", "20", "21", "22", "23", "24", "25+"],
     datasets: [
       {
-        label: "Wiek uczesników",
+        label: "Wiek uczestników",
         fill: false,
         lineTension: 0.1,
         backgroundColor: "rgba(75,192,192,0.4)",
@@ -67,15 +71,6 @@ export const Statistics: FunctionComponent<StatisticsProps> = (props: any) => {
   };
 
   const setAgeChartData = () => {
-    // if (
-    //   (person[0].substr(2, 2) == 8 && person[0].substr(4, 2) >= 29) ||
-    //   (person[0].substr(2, 2) == 28 && person[0].substr(4, 2) >= 29) ||
-    //   (person[0].substr(2, 2) == 9 && person[0].substr(4, 2) <= 14) ||
-    //   (person[0].substr(2, 2) == 29 && person[0].substr(4, 2) <= 14)
-    // ) {
-    //   people.push(person);
-    // }
-
     usersMainData.forEach((element: any, index: number) => {
       if (index !== 0) {
         let year, month, day, age;
@@ -118,12 +113,25 @@ export const Statistics: FunctionComponent<StatisticsProps> = (props: any) => {
       <section className="statistics">
         <article className="statistics__menu">
           <h1>Statystyki</h1>
+          <div>
+            <Link className="statistics__item" to="/statistics/age">
+              <CakeIcon />
+            </Link>
+            <Link className="statistics__item" to="/statistics/money">
+              <ChartIcon />
+            </Link>
+            <Link className="statistics__item" to="/statistics/space">
+              <ChartPieIcon />
+            </Link>
+          </div>
         </article>
         <article className="statistics__list">
-          <Bar data={ageChartData} height={100} options={ageChartOptions} />
-          <Line data={ageChartData} options={ageChartOptions} />
-          {/* <Line data={data} />
-          <Line data={data} /> */}
+          <Switch>
+            <Route exact path="/statistics/age">
+              <Bar data={ageChartData} height={120} options={ageChartOptions} />
+            </Route>
+          </Switch>
+          {/* <Line data={ageChartData} options={ageChartOptions} /> */}
         </article>
       </section>
     </>

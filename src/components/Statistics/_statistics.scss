@@ -7,8 +7,10 @@
   }
   &__menu {
     @include mainListMenu;
+    @include standardSvg;
   }
   &__list {
     @include mainList;
+    overflow: unset;
   }
 }

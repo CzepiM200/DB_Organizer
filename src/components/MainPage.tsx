@@ -1,7 +1,7 @@
 import "../scss/main.scss";
 import "./_mainPage.scss";
 import React, { FunctionComponent } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { StartPage } from "./StartPage/StartPage";
 import { Sidebar } from "./Sidebar/Sidebar";
 import { Navbar } from "./Navbar/Navbar";
@@ -75,7 +75,7 @@ export const MainPage: FunctionComponent<MainPageProps> = (props: any) => {
                   <Route exact path="/finances">
                     <Finances />
                   </Route>
-                  <Route exact path="/statistics">
+                  <Route path="/statistics">
                     <Statistics />
                   </Route>
                   <Route exact path="/rooms">

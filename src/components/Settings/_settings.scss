@@ -11,32 +11,13 @@
   }
   &__list {
     @include mainList;
-    // overflow-y: hidden;
+    overflow: hidden;
   }
   &__list-item {
     @include mainListItem;
-    @keyframes saveHover {
-      from {
-        fill: $text-color;
-      }
-      to {
-        fill: $primary-color;
-      }
-    }
-    svg {
-      height: 3em;
-      margin: 0 5%;
-      transition-delay: 0.5s;
-      path {
-        height: 100%;
-        fill: $text-color;
-      }
-      &:hover {
-        path {
-          animation: saveHover 0.5s;
-          fill: $primary-color;
-        }
-      }
-    }
+    @include standardSvg;
+    // canvas {
+    //   height: 100%;
+    // }
   }
 }
