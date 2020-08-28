@@ -11,8 +11,9 @@
   }
   &__list {
     @include mainList;
-    overflow: hidden;
+    // overflow: hidden;
     form {
+      height: calc(100% - 2em);
       margin: 1em;
       padding: 1em;
       display: flex;
