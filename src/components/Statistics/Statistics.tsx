@@ -129,7 +129,7 @@ export const Statistics: FunctionComponent<StatisticsProps> = (props: any) => {
     0
   );
   const moneyChartData = {
-    labels: ["Wpłacone zaliczki", "Paliwo", "Faktury"],
+    labels: ["Wpłacone zaliczki", "Łączne koszty", "Paliwo", "Faktury"],
     datasets: [
       {
         label: "Przychowy i wydatki",
@@ -150,7 +150,12 @@ export const Statistics: FunctionComponent<StatisticsProps> = (props: any) => {
         pointHoverBorderWidth: 2,
         pointRadius: 1,
         pointHitRadius: 10,
-        data: [income, billsExpences, fuelExpences],
+        data: [
+          income,
+          billsExpences + fuelExpences,
+          billsExpences,
+          fuelExpences,
+        ],
       },
     ],
   };
@@ -199,9 +204,9 @@ export const Statistics: FunctionComponent<StatisticsProps> = (props: any) => {
             <Link className="statistics__item" to="/statistics/money">
               <ChartIcon />
             </Link>
-            <Link className="statistics__item" to="/statistics/space">
+            {/* <Link className="statistics__item" to="/statistics/space">
               <ChartPieIcon />
-            </Link>
+            </Link> */}
           </div>
         </article>
         <article className="statistics__list">
