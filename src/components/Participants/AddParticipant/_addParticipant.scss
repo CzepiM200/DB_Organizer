@@ -1,0 +1,46 @@
+@import "../../../scss/generic";
+
+.add-participants {
+  @include mainListBox;
+
+  h1 {
+    @include mainH1;
+  }
+  &__menu {
+    @include mainListMenu;
+  }
+  &__list {
+    @include mainList;
+    overflow: hidden;
+    form {
+      margin: 1em;
+      padding: 1em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: $menus-background-transparent;
+      border-radius: 1em;
+      label {
+        width: 18em;
+        margin: 0.3em 0;
+        display: flex;
+        justify-content: space-between;
+        color: $primary-color;
+        font-size: 1.2em;
+        text-align: left;
+        input {
+          width: 13em;
+          margin-left: 1em;
+        }
+      }
+      & > input {
+        margin-top: 1em;
+        width: 6em;
+      }
+    }
+  }
+  &__list-item {
+    @include mainListItem;
+    @include standardSvg;
+  }
+}

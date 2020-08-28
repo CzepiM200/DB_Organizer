@@ -13,6 +13,10 @@ type StatisticsProps = {};
 
 export const Statistics: FunctionComponent<StatisticsProps> = (props: any) => {
   const usersMainData = useSelector((state: any) => state.usersMainData);
+  const financesDate = useSelector((state: any) => state.financesData);
+  const billsDate = useSelector((state: any) => state.billsData);
+  const fuelDate = useSelector((state: any) => state.fuelData);
+
   const ageChartData = {
     labels: ["18", "19", "20", "21", "22", "23", "24", "25+"],
     datasets: [
@@ -106,6 +110,81 @@ export const Statistics: FunctionComponent<StatisticsProps> = (props: any) => {
     });
   };
 
+  let income = usersMainData.reduce(
+    (acc: number, cur: Array<any>, index: number) => {
+      return index !== 0 ? acc + Number(cur[14]) : 0;
+    },
+    0
+  );
+  let billsExpences = billsDate.reduce(
+    (acc: number, cur: Array<any>, index: number) => {
+      return index !== 0 ? acc + Number(cur[1]) : 0;
+    },
+    0
+  );
+  let fuelExpences = fuelDate.reduce(
+    (acc: number, cur: Array<any>, index: number) => {
+      return index !== 0 ? acc + Number(cur[1]) : 0;
+    },
+    0
+  );
+  const moneyChartData = {
+    labels: ["Wpłacone zaliczki", "Paliwo", "Faktury"],
+    datasets: [
+      {
+        label: "Przychowy i wydatki",
+        fill: false,
+        lineTension: 0.1,
+        backgroundColor: "rgba(75,192,192,0.4)",
+        borderColor: "rgba(75,192,192,1)",
+        borderCapStyle: "butt",
+        borderDash: [],
+        borderDashOffset: 0.0,
+        borderJoinStyle: "miter",
+        pointBorderColor: "rgba(75,192,192,1)",
+        pointBackgroundColor: "#fff",
+        pointBorderWidth: 1,
+        pointHoverRadius: 5,
+        pointHoverBackgroundColor: "rgba(75,192,192,1)",
+        pointHoverBorderColor: "rgba(220,220,220,1)",
+        pointHoverBorderWidth: 2,
+        pointRadius: 1,
+        pointHitRadius: 10,
+        data: [income, billsExpences, fuelExpences],
+      },
+    ],
+  };
+  const moneyChartOptions = {
+    legend: {
+      labels: {
+        fontColor: "white",
+        fontSize: 18,
+      },
+    },
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            fontColor: "white",
+            fontSize: 14,
+            stepSize: 50,
+            beginAtZero: true,
+          },
+        },
+      ],
+      xAxes: [
+        {
+          ticks: {
+            fontColor: "white",
+            fontSize: 14,
+            stepSize: 1,
+            beginAtZero: true,
+          },
+        },
+      ],
+    },
+  };
+
   setAgeChartData();
 
   return (
@@ -131,7 +210,15 @@ export const Statistics: FunctionComponent<StatisticsProps> = (props: any) => {
               <Bar data={ageChartData} height={120} options={ageChartOptions} />
             </Route>
           </Switch>
-          {/* <Line data={ageChartData} options={ageChartOptions} /> */}
+          <Switch>
+            <Route exact path="/statistics/money">
+              <Bar
+                data={moneyChartData}
+                height={120}
+                options={moneyChartOptions}
+              />
+            </Route>
+          </Switch>
         </article>
       </section>
     </>

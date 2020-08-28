@@ -5,7 +5,9 @@ import { ReactComponent as CakeIcon } from "../../images/svg/cake.svg";
 import React, { FunctionComponent } from "react";
 // import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Switch, Route } from "react-router-dom";
+import { AddParticipant } from "./AddParticipant/AddParticipant";
+import { Birthdays } from "../Birthdays/Birthdays";
 
 type ParticipantsProps = {};
 
@@ -73,20 +75,35 @@ export const Participants: FunctionComponent<ParticipantsProps> = (
 
   return (
     <>
-      <section className="participants">
-        <article className="participants__menu">
-          <h1>Lista uczestników</h1>
-          <div className="participants__icons">
-            <Link className="participants__item" to="/participants/birthdays">
-              <CakeIcon />
-            </Link>
-            <Link className="participants__item" to="/participants/add">
-              <PlusIcon />
-            </Link>
-          </div>
-        </article>
-        <article className="participants__list">{ParticipantsList()}</article>
-      </section>
+      <Switch>
+        <Route exact path="/participants">
+          <section className="participants">
+            <article className="participants__menu">
+              <h1>Lista uczestników</h1>
+              <div className="participants__icons">
+                <Link
+                  className="participants__item"
+                  to="/participants/birthdays"
+                >
+                  <CakeIcon />
+                </Link>
+                <Link className="participants__item" to="/participants/add">
+                  <PlusIcon />
+                </Link>
+              </div>
+            </article>
+            <article className="participants__list">
+              {ParticipantsList()}
+            </article>
+          </section>
+        </Route>
+        <Route exact path="/participants/add">
+          <AddParticipant />
+        </Route>
+        <Route exact path="/participants/birthdays">
+          <Birthdays />
+        </Route>
+      </Switch>
     </>
   );
 };

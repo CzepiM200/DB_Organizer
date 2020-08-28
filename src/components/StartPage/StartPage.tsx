@@ -112,7 +112,6 @@ export const StartPage: FunctionComponent<StartPageProps> = (props: any) => {
           dispatch(setBillsData(allData.billsData));
           dispatch(setFuelData(allData.fuelData));
           dispatch(setDataLoaded());
-          console.log(allData);
         }
       } else {
         alert("Brak arkuszy w pamięci przeglądarki");

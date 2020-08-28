@@ -16,8 +16,5 @@
   &__list-item {
     @include mainListItem;
     @include standardSvg;
-    // canvas {
-    //   height: 100%;
-    // }
   }
 }

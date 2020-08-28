@@ -63,12 +63,12 @@ export const MainPage: FunctionComponent<MainPageProps> = (props: any) => {
                   <Route exact path="/">
                     <HomePage />
                   </Route>
-                  <Route exact path="/participants">
+                  <Route path="/participants">
                     <Participants />
                   </Route>
-                  <Route exact path="/participants/birthdays">
+                  {/* <Route exact path="/participants/birthdays">
                     <Birthdays />
-                  </Route>
+                  </Route> */}
                   <Route exact path="/cadre">
                     <Cadre />
                   </Route>

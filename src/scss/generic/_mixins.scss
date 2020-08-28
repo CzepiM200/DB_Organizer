@@ -50,6 +50,9 @@
     color: $primary-color;
     text-align: left;
   }
+  &:hover {
+    background-color: $text-background-darker-non-transparent;
+  }
 }
 
 @mixin standardSvg {
