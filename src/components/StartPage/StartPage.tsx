@@ -13,12 +13,9 @@ import {
   setDataLoaded,
 } from "../../actions/index";
 
-type StartPageProps = {
-  saveData: any;
-};
+type StartPageProps = {};
 
 export const StartPage: FunctionComponent<StartPageProps> = (props: any) => {
-  const { saveData } = props;
   const dispatch = useDispatch();
 
   const PeselFix = (data: Array<any>): Array<any> => {
@@ -93,11 +90,11 @@ export const StartPage: FunctionComponent<StartPageProps> = (props: any) => {
     };
     if (rABS) reader.readAsBinaryString(file);
     else reader.readAsArrayBuffer(file);
-    saveData();
   };
 
   const loadDataFromBrowser = (e: any) => {
     const dataLoaded = localStorage.getItem("dataLoaded");
+    console.log(dataLoaded);
 
     if (dataLoaded !== null) {
       if (JSON.parse(dataLoaded)) {

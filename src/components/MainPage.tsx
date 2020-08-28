@@ -44,6 +44,7 @@ export const MainPage: FunctionComponent<MainPageProps> = (props: any) => {
 
       localStorage.setItem("dataLoaded", JSON.stringify(dataLoaded));
       localStorage.setItem("allData", JSON.stringify(allData));
+      alert("Dane zostały zapisane pomyślnie w pamięci przeglądarki");
     }
   };
 
@@ -57,7 +58,7 @@ export const MainPage: FunctionComponent<MainPageProps> = (props: any) => {
             </div>
             <div className="main-page__page">
               {!dataLoaded ? (
-                <StartPage saveData={saveData} />
+                <StartPage />
               ) : (
                 <Switch>
                   <Route exact path="/">
